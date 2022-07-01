@@ -422,6 +422,52 @@ router.get('/tournaments', (req, res) => {
   });
 });
 
+router.get('/tournaments/:tournament_id/groups', (req, res) => {
+  res.json({
+    "message": "Success",
+    "data": [
+        {
+            "group_id": "g#4",
+            "name": "group 4",
+            "description": "Description for group 3",
+            "starting_at": "2022-06-16T00:00:00Z",
+            "ending_at": "2023-06-16T00:00:00Z",
+            "stage": {
+                "stage_id": "s#2",
+                "name": "final"
+            }
+        },
+        {
+            "group_id": "g#6",
+            "name": "group 6",
+            "description": "Description for group 3",
+            "starting_at": "2022-06-16T00:00:00Z",
+            "ending_at": "2023-06-16T00:00:00Z",
+            "stage": {
+                "stage_id": "s#4",
+                "name": "semifinal"
+            }
+        },
+        {
+            "group_id": "g#5",
+            "name": "group 5",
+            "description": "Description for group 3",
+            "starting_at": "2022-06-16T00:00:00Z",
+            "ending_at": "2023-06-16T00:00:00Z",
+            "stage": {
+                "stage_id": "s#3",
+                "name": "thirdplace"
+            }
+        }
+    ],
+    "paginate": {
+        "limit": "10",
+        "total": 3
+    }
+});
+});
+
+
 router.use('/emojis', emojis);
 
 module.exports = router;
